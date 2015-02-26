@@ -48,7 +48,7 @@ module.exports = function(grunt) {
     watch: {
       assemble: {
         files: ['<%= app.src %>/{assets,content,data,templates}/**/*.{md,hbs,yml,css}', '<%= app.src %>/../d4/docs/**/*.{md,hbs,yml}', '<%= app.src %>/../d4/README.md', '<%= app.src %>/../d4/docs/d4-doc.md', '<%= app.src %>/../d4/d4.css'],
-        tasks: ['copy:styles', 'assemble']
+        tasks: ['copy:styles', 'copy:bower', 'assemble']
       },
       livereload: {
         options: {
@@ -185,6 +185,7 @@ module.exports = function(grunt) {
     concurrent: {
       server: [
         'copy:styles',
+        'copy:bower'
       ],
       test: [
         'copy:styles',
